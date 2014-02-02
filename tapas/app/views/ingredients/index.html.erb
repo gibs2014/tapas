@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>Ingredients</h1>
+</div>
+
+<p><%= link_to 'Add a New Ingredient', new_ingredient_url, class: 'btn btn-primary' %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Source</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td><%= ingredient.source %></td>
+        <td><%= ingredient.notes %></td>
+        <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, ingredient_url(ingredient), class: 'btn btn-primary' %></td>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_ingredient_url(ingredient), class: 'btn btn-warning' %></td>
+        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, ingredient_url(ingredient), method: 'delete', data: { confirm: "Do you really want to delete this ingredient?" }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
