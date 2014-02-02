@@ -23,7 +23,7 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.image %></td>
+        <td><%= image_tag recipe.image, width:100 %></td>
         <td><%= recipe.category %></td>
         <td><%= recipe.quantity %></td>
         <td><%= recipe.calories %></td>
